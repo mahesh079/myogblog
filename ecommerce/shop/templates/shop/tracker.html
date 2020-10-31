@@ -1,0 +1,141 @@
+{% extends 'shop/basic.html' %}
+{% block css%}
+.col-xs-3 col-sm-3 col-md-3{
+  margin: 7px;
+}
+.col-md-3
+{
+display: inline-block;
+margin-left:-8px;
+}
+.carousel-indicators .active {
+background-color: blue;
+  }
+.col-md-3 img{
+width:60%;
+height:auto;
+}
+body .carousel-indicator li{
+background-color: blue;
+}
+body .carousel-indicators{
+bottom: 0;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+background-color: blue;
+}
+ body .no-padding{
+ padding-left: 0,
+ padding-right: 0;
+ }
+ .card-body{
+   margin-left: 10px;
+   margin-right: 100px;
+   height: 220px;
+ }
+ .col-md-3 img {
+  width: 180px;
+  height: 200px;
+}
+ .card{
+   height:370px;
+ }
+ .carousel-control-next, .carousel-control-prev {
+   position:absolute;
+   top:28%;
+   bottom:auto;
+   <!-- padding:10px; -->
+ }
+ #clear:hover{
+   background-color:red;
+ }
+ #popcart{
+   background-color:cadetblue;
+ }
+ #popcart:hover{
+   background-color:coral;
+
+}
+{% endblock %}
+{% block body%} 
+<div class="container" >
+  <div class="col">
+    <h2 id="head">Track your orders from here</h2>
+    <div >
+      <ul class="list-group" id="items">
+        {% for i,j in params.items %}
+        <li class="list-group-item d-flex justify-content-between align-items-center" id="track{{forloop.counter}}">
+          {{j}}
+          <span class="badge badge-primary badge-pill">{{i}}</span>
+        </li>
+        {% endfor %}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<header class="masthead my-3" id="subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <font color ="grey"><h1 id="head2">Enter your Order Id and email address</h1>
+            <span class="subheading" id="head3">Kindly fill all the details</span>
+            </font>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container" id="subhead2">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- <p>After placing the orders you can check their status at the tracker </p> -->
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form name="sentMessage" id="contactForm" action="/shop/tracker/" method="POST" >{% csrf_token %} 
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Order Id</label>
+              <input type="text" class="form-control" placeholder="Order Id" id="orderid" name='orderid' required data-validation-required-message="Please enter your Order Id.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Email</label>
+              <input type="Email" class="form-control" placeholder="Email" id="Email" name='Email' required data-validation-required-message="Please enter your email.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="clear()" id="sendMessageButton">Track order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+{% endblock %}
+{% block js %}
+<script>
+  function clear(){
+    document.getElementById('head2').style.display='none';
+    document.getElementById('head3').style.display='none';
+    document.getElementById('contactform').style.display='none';
+  };
+$('#sendMeassageButton').click(function(){
+  document.getElementById('head2').style.display='none';
+  document.getElementById('head3').style.display='none';
+  document.getElementById('contactform').style.display='none';
+});
+</script>
+{% endblock %}

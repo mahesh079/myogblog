@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.container{
+		display: flex;
+		flex-wrap: wrap;
+		margin: 80px 250px;
+		border: 2px solid black;
+		border-radius: 17px;
+		display: inline-block;
+		width: 380px;
+		height: 250px;
+		background-color: bisque;
+	}
+	body{
+		align-items: center;
+		align-content: center;
+		text-align: center;
+		background-color: gray;
+	}
+	input{
+		border-radius: 10px;
+		height: 20px;
+		width: 190px;
+	}
+	.both{
+		margin-top: 6px
+	}
+	.btn{
+		margin-top: 30px;
+		border-radius: 30px;
+		border-color: purple;
+		font-size: 1rem;
+		background-color: darkturquoise;
+		width: 95px;
+		height: 30px;
+	}
+	label{
+		font-size: 18px;
+	}
+	.btn:hover{
+		background-color: blueviolet;
+	}
+</style>
+<body>
+	<div class="container">
+	<form action="/blog/signup2/" method="POST"> {% csrf_token %}
+		<div class="all">
+	<div class="both">
+	<label for="firstname" >Enter firstname:</label>
+	<input type="text" name="firstname" required placeholder="Enter firstname">
+	</div>
+	<div class="both">
+	<label for="lastname">Enter lastname:</label>
+	<input type="text" name="lastname" required placeholder="Enter lastname">
+	</div>
+	<div class="both">
+	<label for="username">Enter username:</label>
+	<input type="text" name="username" required placeholder="Enter username">
+	</div>
+	<div class="both">
+		<label for="email">Enter email address:</label>
+		<input type="email" name="email" required placeholder="Enter email">
+	</div>
+	<div class="both">
+	<label for="password">Enter password:</label>
+	<input type="password" name="password" required placeholder="Enter password">
+	</div>
+	<div >
+	<button class="btn btn-outline-success " type="submit">Sign up</button>
+</div>
+	</div>
+	</form>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

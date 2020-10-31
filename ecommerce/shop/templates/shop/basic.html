@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>{% block title%} {% endblock %}</title>
+  </head>
+ <style>
+     {% block css%} {% endblock %}
+ </style>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">My Amazon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/shop/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/tracker">Tracker</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/about">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/contact">Contact us</a>
+            </li>
+            <li>         
+               <button type="button" class="btn btn-secondary mx-1" Id="popcart" data-container="body" data-toggle="popover"
+              data-placement="bottom" data-html="true" data-content="">Cart(<span Id="cart">0</span>)</button>
+        </li>
+        <li>
+          <a href="/shop/checkout"><button Id="Checkout" class="btn btn-outline-success my-1 my-sm-0">Checkout</button></a>
+        </li>
+        <li>
+          <a href="/blog"><button Id="Blog" class="btn btn-outline-success my-1 my-sm-0 mx-1">blog</button></a>
+        </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Cart(<span Id="cart">0</span>)</a>
+            </li> -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0" action="/shop/search/" method="POST"> {% csrf_token %} 
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+              <button type="button" class="btn btn-primary mx-2" onclick="clearCart()" Id="clear" style="border: 2px solid black;" data-container="body" 
+        data-placement="bottom" >Clear cart</button>
+      </div>
+      </nav>
+      {% block body%} {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  {% block js %}
+  <!-- <script>
+    // console.log('working');
+    // Find out the no of items in the cart from the localstorage 
+    if (localStorage.getItem('cart')==null){
+      var cart={};
+    }
+    else{
+      cart=JSON.parse(localStorage.getItem('cart'));
+      document.getElementById('cart').innerHTML=Object.keys(cart).length;
+      
+    } -->
+    <!-- // If add to cart button is clicked add/increment the item
+    // $(".cart").click(function(){
+    //   // console.log('clicked');
+    //   var idstr=this.id.toString();
+    //   // console.log(idstr);
+    //   if(cart[idstr] !=undefined){
+    //     cart[idstr]=cart[idstr]+1;
+    //   }
+    //   else{
+    //     cart[idstr]=1;
+    //   }
+      
+    //   // console.log(cart);
+
+    // });
+  // Add popover to cart
+
+   
+  //  if plus or minus is clicked ,change the cart as well as display the value
+  -->
+
+  <!-- </script> -->
+  {% endblock %}
+  </body>
+</html>

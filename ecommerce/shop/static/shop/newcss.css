@@ -1,0 +1,280 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* CSS variables */
+body{
+    background-color: rgba(231, 246, 248, 0.911);
+}
+:root{
+    --navbar-height: 59px;
+}
+
+/* Navigation bar */
+#navbar{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* navigation bar logo and img */
+#logo{
+    margin: 5px 15px;
+}
+#logo img{
+    height: 60px;
+    width: 110px;
+}
+/* Navigation bar */
+#navbar{
+    /* position: fixed; */
+    background-color: gray;
+}
+#navbar{
+    position: sticky;
+    background-color: gray;
+    float: left;
+    width: 100%;
+    position: fixed
+}
+#navbar ul{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+#navbar ul li a{
+    color: white;
+    display: inline-block;
+    padding: 5px 19px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+#navbar ul li a:hover{
+    color: black;
+    background-color: blanchedalmond;
+    border-radius: 15px;
+}
+/* Home section */
+#home{
+    /* background: url('bg.jpg') no-repeat center center/cover; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    height: 330px;
+    padding: 10px 50px;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+@media (max-width:663px){
+    #home{
+        width: 500px;
+    }
+}
+/* @media (max-width:663px){
+    #home{
+        width: 90%;
+    }
+} */
+#wellcome{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#wellcome .well{
+    font-size: 5px;
+    position: relative;
+}
+/* Services section */
+#services{
+    margin: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    border-radius: 10px;
+}
+#services .box{
+    border: 1.5px solid rgb(228, 89, 89);
+    background-color: rgb(247, 210, 181);
+    margin: 5px 5px;
+    font-size: 10px;
+    width: 235px ;
+    border-radius: 10px;
+}
+#services .box img{
+    width: 130px;
+    height: 110px;
+    display: block;
+    margin: auto;
+
+}
+
+#services{}
+#services{}
+
+
+/* client section */
+#clients-section::before{
+    content:"";
+    position: absolute;
+    background-image: url('harley small.jpg');
+    width: 100%;
+    height: 54%;
+    z-index: -1;
+    opacity: 0.4;
+}
+#client-section{
+    position: relative;
+    height: 150px;
+    margin-bottom: 15px;
+ 
+
+}
+#client-section h1{
+    font-size: 2.4rem;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+    
+#clients{
+    background: url('harley small.jpg') no-repeat center center/cover;
+    background-size: 90em;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+#clients img{
+    height: 7em;
+    width: 7em;
+    margin: 2px 4px;
+}
+
+
+
+/* utility class */
+.h-primary{
+    color:white;
+    margin-top: 100px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.h-primary1{
+    color:black;
+    font-size: 2rem;
+    /* margin-top: 250px; */
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.h-primary2{
+    text-align: center;
+    /* padding: 20px 15px; */
+}
+.h-secondary{
+    font-size: 1.2rem;
+    padding: 12px;
+    text-align: center;
+}
+.h-primary3center{
+   
+    font-size: 2.4rem;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+#home p{
+    color: blanchedalmond;
+    font-size: 1rem;
+    font-family: cursive;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    display: block;
+    margin: auto;
+    padding: 6px 20px;
+    border: 1.5px solid rgb(86, 240, 232);
+    border-radius: 15px;
+    background-color: rgb(192, 184, 238);
+}
+.btn:hover{
+    background-color: rgb(64, 171, 233);
+}
+/* Contact section */
+
+#contact{
+    position: relative;
+    /* background-color: grey; */
+    /* border-radius: 10px; */
+    /* background: url('harley small.jpg') no-repeat center center/cover; */
+
+}
+#contact::before{
+    /* content: ""; */
+    /* position: absolute; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* z-index: -1; */
+    /* opacity: 0.7; */
+    /* background: url('../harley small.jpg') no-repeat center center/cover; */
+}
+#contact-box{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(213, 226, 215);
+}
+.form-group{
+    border: 1px solid black;
+    margin: 2px 0px;
+    background-color: rgb(166, 182, 192);
+    width: 100%;
+    border-radius: 10px;
+}
+#contact label{
+    font-size: 24px;
+    margin: 0px 20px;
+}
+#contact h1{
+    
+    display: block;
+    text-align: center;
+    margin: auto;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 39px;
+
+}
+.center{
+    text-align: center;
+}

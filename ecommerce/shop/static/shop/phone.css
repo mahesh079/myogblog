@@ -1,0 +1,67 @@
+#home{
+    display: flex;
+    font-size: 5px;
+    flex-wrap: wrap;
+    padding: 50px;
+    height: 550px;
+}
+@media (max-width:650px){
+    #home{
+        width: 300px;
+    }
+}
+#h-primary{
+    font-size: 0.5em;
+}
+#wellcome{
+    display: flex;
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* height: 500px; */
+}
+@media(max-width:340px){
+    #home{
+        height: 1100px;
+    }
+}
+/* services section */
+#services{
+    flex-direction: column;
+}
+@media(max-width:478px){
+    #contact h1{
+    
+        display: block;
+        text-align: center;
+        margin: auto;
+        background-color: grey;
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 39px;
+        margin-top: 150px;
+    
+    }
+}
+@media(max-width:240px){
+    #contact h1{
+    
+        display: block;
+        text-align: center;
+        margin: auto;
+        background-color: grey;
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 39px;
+        margin-top: 390px;
+    
+    }
+}
+#navbar{
+    justify-content: center;
+}
+@media (max-width:663px){
+    #home{
+         background: url('bg.jpg') no-repeat center center/cover;
+         width: 400px;
+    }
+}

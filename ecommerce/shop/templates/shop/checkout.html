@@ -1,0 +1,306 @@
+{% extends 'shop/basic.html' %}
+{% block css%}
+.col-xs-3 col-sm-3 col-md-3{
+  margin: 7px;
+}
+.col-md-3
+{
+display: inline-block;
+margin-left:-8px;
+}
+.carousel-indicators .active {
+background-color: blue;
+  }
+.col-md-3 img{
+width:60%;
+height:auto;
+}
+body .carousel-indicator li{
+background-color: blue;
+}
+body .carousel-indicators{
+bottom: 0;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+background-color: blue;
+}
+ body .no-padding{
+ padding-left: 0,
+ padding-right: 0;
+ }
+ .card-body{
+   margin-left: 10px;
+   margin-right: 100px;
+   height: 220px;
+ }
+ .col-md-3 img {
+  width: 180px;
+  height: 200px;
+}
+ .card{
+   height:370px;
+ }
+ .carousel-control-next, .carousel-control-prev {
+   position:absolute;
+   top:28%;
+   bottom:auto;
+   <!-- padding:10px; -->
+ }
+ #clear:hover{
+   background-color:red;
+ }
+ #popcart{
+   background-color:cadetblue;
+ }
+ #popcart:hover{
+   background-color:coral;
+
+}
+{% endblock %}
+{% block body %}
+<div class="container" >
+  <div class="col">
+    <h2 id="head">Your orders are here</h2>
+    <div >
+      <ul class="list-group" id="items">
+        </li>
+      </ul>
+      <span id="totalprice"></span>
+    </div>
+  </div>
+
+</div>
+<header class="masthead my-3" id="subhead">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <font color ="grey"><h1>Confirm your orders</h1>
+            <span class="subheading">Kindly fill all the details</span>
+            </font>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container" id="subhead2">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>After placing the orders you can check their status at the tracker </p>
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form name="sentMessage" id="contactForm" action="/shop/checkout/" method="POST" >{% csrf_token %} 
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Name" id="name" name='name' required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>State</label>
+              <input type="state" class="form-control" placeholder="state" id="state" name='state' required data-validation-required-message="Please enter your state.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>City</label>
+              <input type="City" class="form-control" placeholder="City" id="city" name='city' required data-validation-required-message="Please enter your City.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>pincode</label>
+              <input type="pincode" class="form-control" placeholder="pincode" id="pincode" name='pincode' required data-validation-required-message="Please enter your pincode.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Address</label>
+              <input type="address" class="form-control" placeholder="Address" id="address" name='address' required data-validation-required-message="Please enter your address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Email Address</label>
+              <input type="email" class="form-control" placeholder="Email Address" id="email" name='email' required data-validation-required-message="Please enter your email address.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name='phone' required data-validation-required-message="Please enter your phone number.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Place order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; My Amazon 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+
+</body>
+
+</html>
+
+
+{% endblock %}
+{% block js %}
+<script>
+   if (localStorage.getItem('cart')==null){
+   var cart={};
+ }
+ else{
+   cart=JSON.parse(localStorage.getItem('cart'));
+  //  document.getElementById('cart').innerHTML=Object.keys(cart).length;
+ }
+ no_of_orders(cart)
+ function no_of_orders(cart){
+  var sum=0;
+  var totalprice=0;
+ if ($.isEmptyObject(cart)){
+   alert('Your cart is empty please add some items to your cart before checking out')
+   document.location="/shop";
+   mystr=` <h2 class="my-5">Your cart is empty please add some items to your cart before checking out</h2>`
+        $('#items').append(mystr);
+    document.getElementById('head').style.display='none';
+    document.getElementById('subhead').style.display='none';
+    document.getElementById('subhead2').style.display='none';
+    document.getElementById('contactform').style.display='none';
+    updatecart(cart);
+    document.location="/shop";
+ }
+ else{
+
+ for(item in cart){
+   let name=cart[item][1];
+   let qty=cart[item][0];
+   let itemprice=cart[item][2];
+   sum=sum+qty;
+   totalprice=totalprice + qty*itemprice
+   console.log(name);
+   mystr=`<li class="list-group-item d-flex justify-content-between align-items-center">
+          Product name:${name}
+          <span class="badge badge-primary badge-pill">Quantity:${qty}</span>
+        </li>`
+        $('#items').append(mystr);
+        document.getElementById('cart').innerHTML=sum;
+ }
+ document.getElementById('totalprice').innerHTML="Your total bill is Rs: "+ totalprice;
+ }
+ }
+ 
+ 
+ function updatecart(cart){
+   for (var item in cart){
+    //  sum=sum+cart[item][0]
+     document.getElementById('div'+item).innerHTML="<button id='minus" + item+ "' class='btn btn-primary minus'>-</button> <span Id='val" + item + "''>" + cart[item] + "</span> <button Id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+   }
+   localStorage.setItem('cart',JSON.stringify(cart));
+   document.getElementById('cart').innerHTML=Object.keys(cart).length;
+   // console.log(cart);
+  
+ }
+ function updatecart2(cart){
+   for (var item in cart){
+    //  sum=sum+cart[item][0]
+     document.getElementById('div'+item).innerHTML='<button  id="'+ item +'" class="btn btn-primary cart my-1">Add to cart</button>';
+     // console.log('inside forloop');
+   
+   }
+   localStorage.setItem('cart',JSON.stringify(cart));
+   document.getElementById('cart').innerHTML=Object.keys(cart).length;
+   // console.log(cart);
+   
+ }
+
+//  Add popover to cart
+
+ function clearCart(){
+   console.log('initiated');
+   cart=JSON.parse(localStorage.getItem('.cart'));
+   for (var item in cart){
+     console.log(item);
+     document.getElementById('div' + item).innerHTML='<button  id="'+ item +'" class="btn btn-primary cart my-1">Add to cart</button>'
+   }
+   localStorage.clear();
+   cart={};
+   updatecart(cart);
+   no_of_orders(cart);
+   console.log('success');
+ };
+ function clearCart2(){
+   console.log('initiated');
+   cart=JSON.parse(localStorage.getItem('.cart'));
+   for (var item in cart){
+     console.log(item);
+     document.getElementById('div' + item).innerHTML='<button  id="'+ item +'" class="btn btn-primary cart my-1">Add to cart</button>'
+   }
+   localStorage.clear();
+   cart={};
+   updatecart2(cart);
+   console.log('success');
+ };
+ {% if thank %}
+ alert('Thank you for ordering your order will be delivered to you shortly. your order id is {{id}}.use it to track your order')
+ localStorage.clear();
+ document.location="/shop";
+ {% endif %}
+</script>
+{% endblock %}
